@@ -1,0 +1,36 @@
+<!-- Jos näet tän, kaikki on kunnossa xD -->
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UGABUGA</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<h1>UGABUGA Lemmikki</h1>
+<p id="puhe">Ugabuga haluaa huomiota!</p>
+
+<img id="lemmikki" src="pet.gif" alt="Lemmikki" width="250">
+
+<br><br>
+
+<button onclick="ruoki()">🍔 Ruoki</button>
+<button onclick="leiki()">🎾 Leiki</button>
+<button onclick="nuku()">💤 Nuku</button>
+<button onclick="siivoa()">🧼 Siivoa</button>
+
+<br><br>
+
+<label for="kuva">Vaihda lemmikin kuva:</label>
+<input type="file" id="kuva" accept="image/*">
+
+<h2>Lemmikin tila</h2>
+<p>Nälkä: <span id="nalka">80</span>/100</p>
+<p>Onnellisuus: <span id="onnellisuus">80</span>/100</p>
+<p>Energia: <span id="energia">80</span>/100</p>
+
+</body>
+</html>
