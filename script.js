@@ -2,6 +2,7 @@ let nälkä = 80;
 let onnellisuus = 80;
 let energia = 80;
 let kuollut = false;
+let nukuSpämmi = 0;
 
 function päivitä() {
   document.getElementById("nalka").textContent = nälkä;
@@ -65,6 +66,20 @@ function leiki() {
 function nuku() {
   if (kuollut) return;
 
+  nukuSpämmi++;
+
+  if (nukuSpämmi >= 5) {
+    kuollut = true;
+    sano("Ugabuga räjäytti itsensä");
+    document.getElementById("lemmikki").style.display = "none";
+
+    document.querySelectorAll("button").forEach(function(nappi) {
+      nappi.disabled = true;
+    });
+
+    return;
+  }
+
   energia = Math.min(100, energia + 30);
   nälkä = Math.max(0, nälkä - 5);
 
@@ -109,18 +124,20 @@ document.getElementById("kuva").onchange = function(tapahtuma) {
 setInterval(function() {
   if (kuollut) return;
 
-  nälkä = Math.max(0, nälkä - 1);
-  energia = Math.max(0, energia - 1);
+  nälkä = Math.max(0, nälkä - 3);
+  energia = Math.max(0, energia - 2);
 
   if (nälkä < 30 || energia < 20) {
-    onnellisuus = Math.max(0, onnellisuus - 2);
+    onnellisuus = Math.max(0, onnellisuus - 5);
   }
 
   päivitä();
 
   if (nälkä === 0) {
     kuole();
+  } else if (energia === 0) {
+    sano("Ugabuga on aivan loppu! Anna sen nukkua!");
   }
-}, 10000);
+}, 3000);
 
 päivitä();
